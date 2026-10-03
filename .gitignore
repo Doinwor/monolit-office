@@ -1,0 +1,9 @@
+# Временные и диагностические файлы
+_tmp_*
+_diag_*
+*.tmp
+
+# Служебное ОС
+.DS_Store
+Thumbs.db
+desktop.ini

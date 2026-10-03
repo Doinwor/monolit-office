@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title data-i18n="pres.winTitle">ПРЕЗЕНТАЦИИ МОНОЛИТ 2000 — редактор</title>
+<meta name="description" content="Монолит Офис — программа для презентаций. Пиши прямо на слайде, двигай блоки, показывай.">
+<meta name="generator" content="Монолит Офис">
+<meta name="author" content="Корпорация Монолит">
+<meta name="copyright" content="© Корпорация Монолит">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
+<link rel="apple-touch-icon" href="img/logo.png">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/office.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ШАПКА -->
+  <header class="topbar">
+    <img class="logo" id="logoImg" src="img/logo.png" width="40" height="40" alt="Презентации Монолит">
+    <svg class="logo logo-svg" id="logoSvg" width="40" height="40" viewBox="0 0 64 64" style="display:none" aria-hidden="true">
+      <rect width="64" height="64" fill="#0000e0"></rect>
+      <rect x="7" y="7" width="50" height="50" fill="#fff"></rect>
+      <text x="30" y="49" text-anchor="middle" fill="#0000e0" font-family="Times New Roman" font-weight="bold" font-size="46">&#1052;</text>
+      <path d="M39 20 60 13 60 33 39 40z" fill="#7aa0ff"></path>
+    </svg>
+    <div class="titles">
+      <h1>ПРЕЗЕНТАЦИИ <b>МОНОЛИТ</b> 2000</h1>
+      <p>пиши прямо на слайде — блоки можно двигать</p>
+    </div>
+    <div class="topslot mo-office-slot" data-base="." data-app="presentation"></div>
+    <div class="spacer"></div>
+    <div class="hits">вы <span id="hits">000001</span>-й посетитель</div>
+  </header>
+
+  <!-- ЛЕНТА -->
+  <nav class="rtabs" role="tablist">
+    <button class="rtab on" data-tab="file" role="tab">Файл</button>
+    <button class="rtab" data-tab="home" role="tab">Главная</button>
+    <button class="rtab" data-tab="insert" role="tab">Вставка</button>
+    <button class="rtab" data-tab="design" role="tab">Дизайн</button>
+    <button class="rtab" data-tab="view" role="tab">Вид</button>
+    <button class="rtab" data-tab="about" role="tab">О программе</button>
+  </nav>
+
+  <!-- ================= ФАЙЛ ================= -->
+  <section class="rpanel" data-panel="file">
+    <div class="rgroup">
+      <div class="rg-title">Презентация</div>
+      <div class="rg-body">
+        <button class="rbtn wide" id="btnNew"><span class="ic">+</span>Создать слайд</button>
+        <button class="rbtn wide" id="btnTpl"><span class="ic">&#9783;</span>Пример</button>
+        <button class="rbtn wide" id="btnAll"><span class="ic">&#9003;</span>Стереть всё</button>
+      </div>
+    </div>
+    <div class="rgroup">
+      <div class="rg-title">Имя</div>
+      <div class="rg-body">
+        <input type="text" id="fName" class="rin" value="Моя презентация" maxlength="60" aria-label="имя презентации">
+      </div>
+    </div>
+    <div class="rgroup">
+      <div class="rg-title">Сохранить</div>
+      <div class="rg-body">
+        <button class="rbtn" id="btnSaveMono"><span class="ic">&#128190;</span>Создать копию <b>.mono</b></button>
+        <button class="rbtn" id="btnSaveHtm"><span class="ic">&#128424;</span>Создать <b>.htm</b></button>
+        <button class="rbtn" id="btnSaveTxt"><span class="ic">&#128221;</span>Создать <b>.txt</b></button>
+      </div>
+    </div>
+    <div class="rgroup">
+      <div class="rg-title">Открыть</div>
+      <div class="rg-body">
+        <button class="rbtn" id="btnOpenMono"><span class="ic">&#128194;</span>Файл <b>.mono</b></button>
+        <button class="rbtn" id="btnQuick"><span class="ic">&#128193;</span>PowerPoint и другое</button>
+        <input type="file" id="fileMono" accept=".mono,.json,.htm,.html" class="rfile">
+        <input type="file" id="filePpt" accept=".pptx,.ppt,.ppsx,.potx,.xml,.txt,.mono,.htm,.html" class="rfile">
+        <p class="rhelp">Файл можно просто перетащить в окно программы.</p>
+      </div>
+    </div>
+    <div class="rgroup">
+      <div class="rg-title">Автосохранение</div>
+      <div class="rg-body">
+        <button class="rbtn" id="btnAuto"><span class="ic">&#128266;</span><span id="autoState">вкл</span></button>
+        <button class="rbtn" id="btnUndo"><span class="ic">&#8630;</span>Отменить</button>
+      </div>
+    </div>
+    <div class="rgroup grow">
+      <div class="rg-title">Мастер импорта PowerPoint</div>
+      <div class="rg-body">
+        <div id="drop" class="drop">
+          <b>КИДАЙ СЮДА .pptx или .ppt</b>
+          <span class="small">или кнопкой выше — можно и в любое место окна</span>
+        </div>
+        <div class="rrow">
+          <label class="rchk"><input type="checkbox" id="keepOrder" checked> угадывать порядок</label>
+          <label class="rchk"><input type="checkbox" id="dryRun"> жалкий режим: только отчёт</label>
+        </div>
+        <pre id="report" class="report">отчёт появится тут. пока пусто — файл не выбран.</pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ГЛАВНАЯ ================= -->
+  <section class="rpanel" data-panel="home">
+    <div class="rgroup">
+      <div class="rg-title">Слайды</div>
+      <div class="rg-body">
+        <button class="rbtn" id="btnNew2" data-act="new"><span class="ic">+</span>Создать</button>
+        <button class="rbtn" id="btnDup"><span class="ic">&#128203;</span>Копия</button>
+        <button class="rbtn" id="btnUp"><span class="ic">&#9650;</span>Вверх</button>
+        <button class="rbtn" id="btnDown"><span class="ic">&#9660;</span>Вниз</button>
+        <button class="rbtn danger" id="btnDel"><span class="ic">&#10006;</span>Удалить</button>
+      </div>
+    </div>
+    <div class="rgroup">
+      <div class="rg-title">Блок текста</div>
+      <div class="rg-body">
+        <button class="rbtn" id="btnAddBlk"><span class="ic">+</span>Новый блок</button>
+        <button class="rbtn" id="btnClearBlk"><span class="ic">&#9003;</span>Очистить</button>
+        <button class="rbtn danger" id="btnDelBlk"><span class="ic">&#10006;</span>Убрать блок</button>
+        <button class="rbtn" id="btnMidBlk"><span class="ic">&#9678;</span>В центр</button>
+        <button class="rbtn" id="btnFitBlk"><span class="ic">&#8226;</span>Автоподгон</button>
+      </div>
+    </div>
+    <div class="rgroup">
+      <div class="rg-title">Шрифт блока</div>
+      <div class="rg-body">
+        <select id="bFont" class="rin">
+          <option value="">как у слайда</option>
+          <option value="'Comic Sans MS', cursive">Comic Sans MS</option>
+          <option value="'Times New Roman', serif">Times New Roman</option>
+          <option value="Impact, fantasy">Impact</option>
+          <option value="Arial, Helvetica, sans-serif">Arial</option>
+          <option value="'Courier New', monospace">Courier New</option>
+        </select>
+        <div class="rrow">
+          <span class="rsize"> <input type="range" id="bSize" min="8" max="72" value="24" aria-label="кегль блока"> <b id="bSizeOut">24</b> pt</span>
+        </div>
+      </div>
+    </div>
+    <div class="rgroup">
+      <div class="rg-title">Начертание</div>
+      <div class="rg-body row">
+        <button class="rbtn ic" id="btnB" title="жирный"><b>Ж</b></button>
+        <button class="rbtn ic" id="btnI" title="курсив"><i>К</i></button>
+        <button class="rbtn ic" id="btnU" title="подчёркивание"><u>Ч</u></button>
+        <button class="rbtn ic" id="btnRevert" title="вернуть блок как было"><span class="ic">&#8634;</span></button>
+      </div>
+    </div>
+    <div class="rgroup">
+      <div class="rg-title">Выравнивание</div>
+      <div class="rg-body row">
+        <button class="rbtn ic" id="btnAlignL" title="по левому краю">&#8676;</button>
+        <button class="rbtn ic" id="btnCenterBlk" title="по центру">&#8596;</button>
+        <button class="rbtn ic" id="btnAlR" title="по правому краю">&#8677;</button>
+        <button class="rbtn ic" id="btnAlJ" title="по ширине">&#8597;</button>
+      </div>
+    </div>
+    <div class="rgroup">
+      <div class="rg-title">Цвет текста блока</div>
+      <div class="rg-body row">
+        <input type="color" id="bColor" class="rcolor" value="#000000" aria-label="цвет текста">
+        <button class="rbtn" id="btnColorAuto">как у слайда</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ВСТАВКА ================= -->
+  <section class="rpanel" data-panel="insert">
+    <div class="rgroup">
+      <div class="rg-title">Слайд</div>
+      <div class="rg-body">
+        <button class="rbtn" id="btnAddAfter"><span class="ic">+</span>Вставить после</button>
+        <button class="rbtn" id="btnDup2" data-act="dup"><span class="ic">&#128203;</span>Копия слайда</button>
+        <button class="rbtn" id="btnTpl2" data-act="tpl"><span class="ic">&#9783;</span>Пример</button>
+      </div>
+    </div>
+    <div class="rgroup">
+      <div class="rg-title">Текст на слайде</div>
+      <div class="rg-body">
+        <button class="rbtn big" id="btnAddBlk2" data-act="addblk"><span class="ic">+</span>Добавить блок текста</button>
+        <p class="rhelp">Двойной клик по пустому месту слайда тоже создаёт блок. За верхнюю
+          полоску блока его можно таскать мышкой, за уголок — менять размер.</p>
+      </div>
+    </div>
+    <div class="rgroup">
+      <div class="rg-title">Показ</div>
+      <div class="rg-body">
+        <button class="rbtn big" id="btnShow"><span class="ic">&#9658;&#9658;</span>Показать слайды</button>
+        <p class="rhelp">Во время показа: &larr; &rarr; или пробел — вперёд, ESC — выход.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ДИЗАЙН ================= -->
+  <section class="rpanel" data-panel="design">
+    <div class="rgroup">
+      <div class="rg-title">Фон слайда</div>
+      <div class="rg-body">
+        <select id="fDesign" class="rin"></select>
+        <div class="rrow">
+          <label class="rchk"><input type="checkbox" id="fPage" checked> номер слайда</label>
+          <label class="rchk"><input type="checkbox" id="fStamp" checked> штамп «Монолит»</label>
+        </div>
+      </div>
+    </div>
+    <div class="rgroup">
+      <div class="rg-title">Шрифт слайда</div>
+      <div class="rg-body">
+        <select id="fFont" class="rin">
+          <option value="'Comic Sans MS', cursive">Comic Sans MS</option>
+          <option value="'Times New Roman', serif">Times New Roman</option>
+          <option value="Impact, fantasy">Impact</option>
+          <option value="Arial, Helvetica, sans-serif">Arial</option>
+          <option value="'Courier New', monospace">Courier New</option>
+        </select>
+        <div class="rrow">
+          <span class="rsize"><input type="range" id="fSize" min="12" max="48" value="24" aria-label="кегль слайда">
+            <b id="sizeOut">24</b> pt</span>
+        </div>
+      </div>
+    </div>
+    <div class="rgroup">
+      <div class="rg-title">Переход</div>
+      <div class="rg-body">
+        <select id="fTrans" class="rin">
+          <option value="none">просто так</option>
+          <option value="fade">плавное появление</option>
+          <option value="blinds">жалюззи</option>
+          <option value="slide">вылет слева</option>
+          <option value="zoom">выпрыгнуть</option>
+          <option value="blinkit">мигание</option>
+        </select>
+      </div>
+    </div>
+    <div class="rgroup wide">
+      <div class="rg-title">Заметки докладчика</div>
+      <div class="rg-body">
+        <textarea id="fNotes" class="rin w-notes" rows="4" maxlength="5000"
+          placeholder="что сказать на этом слайде — видно в показе по кнопке ЗАМЕТКИ (N)"></textarea>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ВИД ================= -->
+  <section class="rpanel" data-panel="view">
+    <div class="rgroup">
+      <div class="rg-title">Масштаб</div>
+      <div class="rg-body">
+        <button class="rbtn" id="btnFit"><span class="ic">&#9744;</span>По ширине окна</button>
+        <p class="rhelp">Слайд всегда вписывается в окно: <b id="zoomOut">100</b>%</p>
+      </div>
+    </div>
+    <div class="rgroup">
+      <div class="rg-title">Помощники</div>
+      <div class="rg-body">
+        <label class="rchk"><input type="checkbox" id="ckGrid"> сетка на слайде</label>
+        <label class="rchk"><input type="checkbox" id="sndOn" checked> пищать при клике</label>
+      </div>
+    </div>
+    <div class="rgroup grow">
+      <div class="rg-title">Подсказка</div>
+      <div class="rg-body">
+        <ul class="rlist">
+          <li>клик по тексту — печатать прямо в блоке;</li>
+          <li>верхняя полоска блока — его можно перетащить;</li>
+          <li>правый нижний уголок блока — размер;</li>
+          <li>двойной клик по пустому месту — новый блок;</li>
+          <li>Tab — новый блок, Delete — убрать блок или слайд;</li>
+          <li>стрелки — сдвинуть выбранный блок (Shift — мельче, Ctrl — крупнее);</li>
+          <li>Ctrl+Z — отменить, Ctrl+N — слайд, Ctrl+S — сохранить, Ctrl+P — показ.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= О ПРОГРАММЕ ================= -->
+  <section class="rpanel" data-panel="about">
+    <div class="rgroup">
+      <div class="rg-title">Монолит Офис</div>
+      <div class="rg-body">
+        <p class="rhelp">Презентации · Документы · Таблицы — три программы в одном стиле.
+          Кнопка «Офис» вверху переключает между ними.</p>
+      </div>
+    </div>
+    <div class="rgroup grow">
+      <div class="rg-title">О проекте</div>
+      <div class="rg-body">
+        <table class="spec">
+          <tr><td>Программа:</td><td>Презентации Монолит, beta 0.4</td></tr>
+          <tr><td>Разработчик проекта:</td><td>корпорация Монолит</td></tr>
+          <tr><td>Форматы:</td><td>.mono, .htm, .txt</td></tr>
+        </table>
+        <div class="cr-note">
+          <b>Проект создан корпорацией Монолит.</b> Презентации Монолит — собственная
+          разработка корпорации Монолит. Настоящий PowerPoint мы не покупали и не используем.
+          <br>© Корпорация Монолит. Все права защищены.
+        </div>
+      </div>
+    </div>
+    <div class="rgroup grow">
+      <div class="rg-title">Гостевая книга</div>
+      <div class="rg-body">
+        <div id="guestList" class="guestlist"></div>
+        <div class="rrow">
+          <input type="text" id="gName" class="rin" maxlength="24" placeholder="ник">
+          <input type="text" id="gText" class="rin" maxlength="140" placeholder="что думаешь о программе">
+          <button class="rbtn" id="btnGuest">Расписаться</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- РАБОЧАЯ ОБЛАСТЬ -->
+  <div class="workspace">
+
+    <aside class="slidepane">
+      <div class="sp-title">СЛАЙДЫ <span id="cnt">0</span></div>
+      <div class="sp-body">
+        <div id="thumbs" class="thumbs"></div>
+        <div class="small empty" id="emptyNote">слайдов нет.<br>жми «Создать слайд».</div>
+      </div>
+      <div class="sp-foot">
+        <button class="rbtn wide" id="btnShow2" data-act="show"><span class="ic">&#9658;&#9658;</span>Показ</button>
+      </div>
+    </aside>
+
+    <div class="stagearea">
+      <div class="stagebar">
+        <span id="ctorTitle" class="small">слайд не выбран</span>
+        <span class="spacer"></span>
+        <span class="small" id="editNote">(создай слайд и пиши прямо на нём)</span>
+      </div>
+      <div class="stagewrap">
+        <div id="canvas" class="canvas d-white"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="status" id="status"></footer>
+
+  <div class="crbar">
+    Презентации Монолит — проект <b>корпорации Монолит</b> · © Корпорация Монолит, все права защищены
+  </div>
+</div>
+
+<!-- ПОКАЗ -->
+<div id="show" class="show">
+  <div id="slide" class="slide"></div>
+  <div id="showNotes" class="pnotes hidden"></div>
+  <div class="showbar">
+    <span class="shownum" id="pInfo">слайд <b id="pNum">1</b> из <b id="pAll">1</b> · <span id="pTimer">00:00</span></span>
+    <button class="rbtn" id="pPrev">&#9664; назад</button>
+    <button class="rbtn" id="pNext">вперёд &#9654;</button>
+    <button class="rbtn" id="pNotes">ЗАМЕТКИ</button>
+    <button class="rbtn" id="pBlack">ЧЁРНЫЙ (B)</button>
+    <button class="rbtn danger" id="pExit">ВЫЙТИ (ESC)</button>
+    <span class="small">стрелки &larr; &rarr;, пробел, Home/End, F1 — справка</span>
+  </div>
+</div>
+
+<!-- Помощь показа -->
+<div id="pHelp" class="phelp">
+  <div class="phelp-box">
+    <div class="phelp-title">Управление показом</div>
+    <div class="phelp-body">
+      <div>← / → / Пробел / Enter — вперёд/назад</div>
+      <div>Home / End — первый/последний слайд</div>
+      <div>B — чёрный экран (вкл/выкл)</div>
+      <div>F1 — показать/скрыть эту справку</div>
+      <div>ESC — выйти из показа</div>
+    </div>
+    <button class="rbtn" id="pHelpClose">ЗАКРЫТЬ (ESC/F1)</button>
+  </div>
+</div>
+
+<div id="dropOv" class="dropov"><div>ОТПУСТИ ФАЙЛ — ЧИТАЕМ</div></div>
+
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+<script src="js/ribbon.js"></script>
+<script src="js/office.js"></script>
+</body>
+</html>

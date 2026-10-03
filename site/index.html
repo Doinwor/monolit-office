@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title data-i18n="site.title">Монолит Офис 2000 — Документы, Таблицы, Презентации</title>
+<meta name="description" content="Монолит Офис — набор из трёх программ для работы: Документы, Таблицы и Презентации. Работают в браузере, без установки и без интернета.">
+<meta name="keywords" content="монолит офис, документы, таблицы, презентации, офис 2000, excel, word, powerpoint">
+<link rel="icon" type="image/png" sizes="32x32" href="img/office-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/office-16.png">
+<link rel="apple-touch-icon" href="img/office-128.png">
+<link rel="stylesheet" href="../tables/css/office.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="page">
+
+  <header class="top">
+    <div class="top-in">
+      <a class="logo" href="#top">
+        <img src="img/office-48.png" alt="Монолит Офис" width="34" height="34">
+        <b>Монолит Офис<span>2000</span></b>
+      </a>
+      <nav class="nav">
+        <a href="#apps" data-i18n="site.nav.apps">Программы</a>
+        <a href="#features" data-i18n="site.nav.features">Возможности</a>
+        <a href="#formats" data-i18n="site.nav.formats">Форматы</a>
+        <a href="#run" data-i18n="site.nav.run">Как открыть</a>
+        <div id="langSwitch" class="lang-switch"></div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="top">
+    <span class="hero-tag" data-i18n="site.hero.tag">набор из трёх программ</span>
+    <h1 data-i18n-html="site.hero.title">Монолит Офис — <em>всё для работы в одном наборе</em></h1>
+    <p class="hero-lead" data-i18n="site.hero.lead">
+      Настоящие Word, Excel и PowerPoint мы не покупали. Здесь — урезанные версии:
+      только то, что нужно каждый день. Открываются двойным щелчком, работают без
+      интернета, ничего не устанавливают и никуда не отправляют твои данные.
+    </p>
+    <div class="hero-cta">
+      <button class="btn docs lg" data-open="documents" data-i18n="site.open.documents">Открыть Документы</button>
+      <button class="btn tabs lg" data-open="tables" data-i18n="site.open.tables">Открыть Таблицы</button>
+      <button class="btn pre lg" data-open="presentation" data-i18n="site.open.presentation">Открыть Презентации</button>
+    </div>
+    <div class="hero-ico">
+      <img src="img/site-ico-documents.jpg" alt="Документы" width="26" height="26">
+      <img src="img/site-ico-tables.jpg" alt="Таблицы" width="26" height="26">
+      <img src="img/site-ico-presentation.jpg" alt="Презентации" width="26" height="26">
+      <span data-i18n="site.hero.icos">Документы · Таблицы · Презентации — проект корпорации Монолит</span>
+    </div>
+  </section>
+
+  <section class="sec" id="apps">
+    <div class="sec-head">
+      <h2 data-i18n="site.apps.title">Три программы</h2>
+      <p data-i18n="site.apps.lead">У каждой свой цвет и свой набор функций, но интерфейс устроен одинаково.</p>
+    </div>
+    <div class="sec-body">
+      <div class="progs">
+
+        <article class="prog" data-c="docs">
+          <div class="prog-top">
+            <img src="../documents/img/logo-32.png" alt="" width="34" height="34">
+            <b data-i18n-html="site.card.docs">Документы<span>тексты, письма, отчёты</span></b>
+          </div>
+          <div class="prog-shot"><img src="img/site-ico-documents.jpg" alt="Значок программы Документы" width="52" height="52"></div>
+          <p class="prog-desc" data-i18n="site.docs.desc">Программа для текстов: письма, отчёты, инструкции и статьи.</p>
+          <ul class="prog-list">
+            <li data-i18n-html="site.docs.l1">Шрифты, начертания, размер и цвет текста</li>
+            <li data-i18n="site.docs.l2">Абзацы, отступы и выравнивание</li>
+            <li data-i18n="site.docs.l3">Маркированные и нумерованные списки</li>
+            <li data-i18n="site.docs.l4">Поиск и замена по всему тексту</li>
+            <li data-i18n="site.docs.l5">Счётчики символов, слов и строк</li>
+            <li data-i18n="site.docs.l6">Сохранение в файл, печать, отмена</li>
+          </ul>
+          <div class="prog-act">
+            <button class="btn docs" data-open="documents" data-i18n="site.open.documents">Открыть Документы</button>
+          </div>
+        </article>
+
+        <article class="prog" data-c="tabs">
+          <div class="prog-top">
+            <img src="../tables/img/logo-32.png" alt="" width="34" height="34">
+            <b data-i18n-html="site.card.tables">Таблицы<span>сетки, расчёты, сметы</span></b>
+          </div>
+          <div class="prog-shot"><img src="img/site-ico-tables.jpg" alt="Значок программы Таблицы" width="52" height="52"></div>
+          <p class="prog-desc" data-i18n="site.tabs.desc">Программа для расчётов: сметы, калькуляции, учёт. Понимает формулы и считает сама.</p>
+          <ul class="prog-list">
+            <li data-i18n-html="site.tabs.l1">Формулы с русскими именами: <code>=СУММ(B2:B9)</code></li>
+            <li data-i18n="site.tabs.l2">38 функций, арифметика, условия, ссылки</li>
+            <li data-i18n="site.tabs.l3">Пять числовых форматов, включая деньги</li>
+            <li data-i18n="site.tabs.l4">Заливка ячеек, цвета текста, границы</li>
+            <li data-i18n="site.tabs.l5">Копирование, вставка, заполнение формул</li>
+            <li data-i18n="site.tabs.l6">Готовые примеры: смета и таблица продаж</li>
+          </ul>
+          <div class="prog-act">
+            <button class="btn tabs" data-open="tables" data-i18n="site.open.tables">Открыть Таблицы</button>
+          </div>
+        </article>
+
+        <article class="prog" data-c="pre">
+          <div class="prog-top">
+            <img src="../presentation/img/logo-32.png" alt="" width="34" height="34">
+            <b data-i18n-html="site.card.presentation">Презентации<span>слайды и доклады</span></b>
+          </div>
+          <div class="prog-shot"><img src="img/site-ico-presentation.jpg" alt="Значок программы Презентации" width="52" height="52"></div>
+          <p class="prog-desc" data-i18n="site.pre.desc">Программа для слайдов: собираете доклад из экранов и запускаете показ.</p>
+          <ul class="prog-list">
+            <li data-i18n="site.pre.l1">Слайды: заголовок, текст, списки</li>
+            <li data-i18n="site.pre.l2">Картинки на слайдах</li>
+            <li data-i18n="site.pre.l3">Показ слайдов с клавиатуры</li>
+            <li data-i18n="site.pre.l4">Готовые шаблоны под типовой доклад</li>
+            <li data-i18n="site.pre.l5">Настройка размера и оформления текста</li>
+            <li data-i18n="site.pre.l6">Сохранение в файл и печать раздатки</li>
+          </ul>
+          <div class="prog-act">
+            <button class="btn pre" data-open="presentation" data-i18n="site.open.presentation">Открыть Презентации</button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="features">
+    <div class="sec-head">
+      <h2 data-i18n="site.feat.title">Что общего у всех трёх программ</h2>
+      <p data-i18n="site.feat.lead">Набор сделан так, чтобы переход между программами не мешал работе.</p>
+    </div>
+    <div class="sec-body">
+      <div class="grid2">
+
+        <div class="feat">
+          <h3 data-i18n="site.f1.t">Переход между программами</h3>
+          <p data-i18n="site.f1.p">Кнопка «Монолит Офис» в правом верхнем углу открывает список программ.</p>
+          <ul>
+            <li data-i18n="site.f1.a">Из Таблиц можно прыгнуть в Документы и обратно</li>
+            <li data-i18n="site.f1.b">Показывается загрузчик с иконками</li>
+          </ul>
+        </div>
+
+        <div class="feat">
+          <h3 data-i18n="site.f2.t">Без установки</h3>
+          <p data-i18n="site.f2.p">Программы — обычные страницы. Скопировали папку и открыли в браузере.</p>
+          <ul>
+            <li data-i18n="site.f2.a">Никаких установщиков и мастеров</li>
+            <li data-i18n="site.f2.b">Работает с флешки и с диска</li>
+          </ul>
+        </div>
+
+        <div class="feat">
+          <h3 data-i18n="site.f3.t">Без интернета</h3>
+          <p data-i18n="site.f3.p">Страницы не запрашивают данные из сети.</p>
+          <ul>
+            <li data-i18n="site.f3.a">Можно работать там, где связи нет</li>
+            <li data-i18n="site.f3.b">Данные не отправляются на сервер</li>
+          </ul>
+        </div>
+
+        <div class="feat">
+          <h3 data-i18n="site.f4.t">Одинаковые сочетания клавиш</h3>
+          <p data-i18n="site.f4.p">Привычные сочетания работают одинаково во всех трёх программах.</p>
+          <ul>
+            <li data-i18n="site.f4.a">Ctrl+Z — отмена, Ctrl+Y — повтор</li>
+            <li data-i18n="site.f4.b">Ctrl+C, Ctrl+V — копирование и вставка</li>
+            <li data-i18n="site.f4.c">Ctrl+S — сохранить, Ctrl+P — печать</li>
+          </ul>
+        </div>
+
+        <div class="feat">
+          <h3 data-i18n="site.f5.t">Одинаковое оформление</h3>
+          <p data-i18n="site.f5.p">Меню, шрифты и кнопки выглядят одинаково.</p>
+          <ul>
+            <li data-i18n="site.f5.a">Не нужно каждый раз привыкать заново</li>
+            <li data-i18n="site.f5.b">Понятная панель инструментов в каждой</li>
+          </ul>
+        </div>
+
+        <div class="feat">
+          <h3 data-i18n="site.f6.t">Данные остаются у вас</h3>
+          <p data-i18n="site.f6.p">Всё, что вы набрали, лежит в файле на вашем компьютере.</p>
+          <ul>
+            <li data-i18n="site.f6.a">Никаких аккаунтов и облаков</li>
+            <li data-i18n="site.f6.b">Файл можно скопировать куда угодно</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="formats">
+    <div class="sec-head">
+      <h2 data-i18n="site.fmt.title">Какие файлы поддерживаются</h2>
+      <p data-i18n="site.fmt.lead">У каждой программы свой формат, а Таблицы дополнительно понимают обычный CSV.</p>
+    </div>
+    <div class="sec-body">
+      <table class="spec">
+        <tr>
+          <th data-i18n="site.fmt.prog">Программа</th>
+          <th data-i18n="site.fmt.save">Сохраняет</th>
+          <th data-i18n="site.fmt.open">Открывает</th>
+        </tr>
+        <tr>
+          <td data-i18n="app.documents.name">Документы</td>
+          <td data-i18n="site.fmt.ownfile">свой файл набора</td>
+          <td data-i18n="site.fmt.ownfile">свой файл набора</td>
+        </tr>
+        <tr>
+          <td data-i18n="app.presentation.name">Презентации</td>
+          <td data-i18n="site.fmt.ownfile">свой файл набора</td>
+          <td data-i18n="site.fmt.ownfile">свой файл набора</td>
+        </tr>
+        <tr>
+          <td data-i18n="app.tables.name">Таблицы</td>
+          <td>.mono и .csv</td>
+          <td>.mono и .csv</td>
+        </tr>
+        <tr>
+          <td data-i18n="site.fmt.between">Между программами</td>
+          <td colspan="2" data-i18n="site.fmt.clip">буфер обмена: текст и таблица с разделением табуляцией</td>
+        </tr>
+      </table>
+      <div class="note" data-i18n-html="site.fmt.note">
+        <b>Честно:</b> совместимости с файлами настоящих Word, Excel и PowerPoint нет.
+        Это урезанные версии со своим форматом. Всё, что нужно для работы, внутри есть,
+        а сложных функций вроде макросов и диаграмм — нет и не будет.
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="run">
+    <div class="sec-head">
+      <h2 data-i18n="site.run.title">Как открыть</h2>
+      <p data-i18n="site.run.lead">Четыре шага, и можно работать.</p>
+    </div>
+    <div class="sec-body">
+      <table class="spec">
+        <tr><td>1</td><td data-i18n-html="site.run.s1">Откройте папку с набором: в ней <code>documents</code>, <code>tables</code>, <code>presentation</code> и <code>site</code>.</td></tr>
+        <tr><td>2</td><td data-i18n-html="site.run.s2">Двойным щелчком откройте эту страницу — <code>site\index.html</code>.</td></tr>
+        <tr><td>3</td><td data-i18n="site.run.s3">Выберите программу и нажмите «Открыть».</td></tr>
+        <tr><td>4</td><td data-i18n="site.run.s4">Работайте. Готовый файл сохраняется кнопкой «Сохранить».</td></tr>
+      </table>
+      <div class="run">
+        <p class="run-lead" data-i18n="site.run.cta">Выбери программу — покажем загрузчик и откроем окно.</p>
+        <div class="run-row">
+          <button class="btn docs lg" data-open="documents" data-i18n="site.open.documents">Открыть Документы</button>
+          <button class="btn tabs lg" data-open="tables" data-i18n="site.open.tables">Открыть Таблицы</button>
+          <button class="btn pre lg" data-open="presentation" data-i18n="site.open.presentation">Открыть Презентации</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="foot-in">
+      <div>
+        <div class="foot-brand">
+          <img src="img/office-48.png" alt="" width="28" height="28">
+          <b>Монолит Офис 2000</b>
+        </div>
+        <p data-i18n="site.foot.about">Набор из трёх программ для работы с текстом, таблицами и презентациями. Работает в браузере, без установки и без интернета.</p>
+      </div>
+      <div>
+        <h4 data-i18n="site.foot.programs">Программы</h4>
+        <ul>
+          <li><a href="../documents/index.html" data-i18n="app.documents.name">Документы</a></li>
+          <li><a href="../tables/index.html" data-i18n="app.tables.name">Таблицы</a></li>
+          <li><a href="../presentation/index.html" data-i18n="app.presentation.name">Презентации</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="site.foot.sections">Разделы</h4>
+        <ul>
+          <li><a href="#apps" data-i18n="site.nav.apps">Программы</a></li>
+          <li><a href="#features" data-i18n="site.nav.features">Возможности</a></li>
+          <li><a href="#formats" data-i18n="site.nav.formats">Форматы</a></li>
+          <li><a href="#run" data-i18n="site.nav.run">Как открыть</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span data-i18n-html="site.foot.credit">Проект создан <b>корпорацией Монолит</b>. Локальный проект — данные никуда не отправляются.</span>
+      <div class="foot-apps">
+        <a href="../documents/index.html"><img src="../documents/img/logo-32.png" alt="" width="18" height="18"><span data-i18n="app.documents.name">Документы</span></a>
+        <a href="../tables/index.html"><img src="../tables/img/logo-32.png" alt="" width="18" height="18"><span data-i18n="app.tables.name">Таблицы</span></a>
+        <a href="../presentation/index.html"><img src="../presentation/img/logo-32.png" alt="" width="18" height="18"><span data-i18n="app.presentation.name">Презентации</span></a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<div class="taskbar">
+  <button class="tb-btn" data-open="documents"><img src="img/site-ico-documents.jpg" alt="" width="18" height="18"><span data-i18n="app.documents.name">Документы</span></button>
+  <button class="tb-btn" data-open="tables"><img src="img/site-ico-tables.jpg" alt="" width="18" height="18"><span data-i18n="app.tables.name">Таблицы</span></button>
+  <button class="tb-btn" data-open="presentation"><img src="img/site-ico-presentation.jpg" alt="" width="18" height="18"><span data-i18n="app.presentation.name">Презентации</span></button>
+  <span class="tb-note" data-i18n="site.task.local">Монолит Офис 2000 — всё локально</span>
+  <span class="tb-time" id="tbTime">--:--</span>
+</div>
+
+<div class="mo-office-slot" data-base="." data-app=""></div>
+
+<script>window.MONOLIT_LANG_AUTO = 0;</script>
+<script src="js/i18n.js"></script>
+<script src="../tables/js/office.js"></script>
+<script src="js/site.js"></script>
+</body>
+</html>

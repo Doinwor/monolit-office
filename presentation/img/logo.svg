@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#7aa0ff"/><stop offset="1" stop-color="#0000e0"/>
+</linearGradient></defs>
+<rect x="2" y="2" width="60" height="60" fill="#000070"/>
+<rect x="6" y="6" width="46" height="46" fill="#fff"/>
+<path d="M38 14 60 7 60 29 38 36z" fill="url(#g)"/>
+<text x="26" y="46" text-anchor="middle" font-family="Times New Roman,serif" font-weight="bold" font-size="40" fill="#0000e0">П</text>
+</svg>

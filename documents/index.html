@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title data-i18n="doc.winTitle">ДОКУМЕНТЫ МОНОЛИТ 2000 [beta 0.4] - офис монолит</title>
+<meta name="description" content="Монолит Офис - программа для документов. Просто. Надёжно. Навсегда.">
+<meta name="keywords" content="документ, монолит, word, офис, бесплатно, 2000">
+<meta name="generator" content="Блокнот Windows">
+<meta name="author" content="Корпорация Монолит">
+<meta name="copyright" content="© Корпорация Монолит">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
+<link rel="apple-touch-icon" href="img/logo-128.png">
+<link rel="stylesheet" href="css/office.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ================= заголовок ================= -->
+  <header class="titlebar">
+    <div class="tb-left">
+      <img class="tb-logo" src="img/logo-48.png" width="26" height="26" alt="Документы Монолит">
+      <span class="tb-app">Документы&nbsp;Монолит</span>
+      <span class="tb-ver">[beta 0.4]</span>
+      <span class="tb-doc">
+        <input type="text" id="fName" class="tb-name" value="Мой документ" title="имя документа" spellcheck="false">
+      </span>
+    </div>
+    <div class="tb-right">
+      <span class="hits">Вы&nbsp;<span id="hits">000001</span>-й посетитель!</span>
+      <div class="mo-office-slot" data-base="." data-app="documents"></div>
+    </div>
+  </header>
+
+  <!-- ================= быстрый доступ ================= -->
+  <div class="qbar">
+    <button class="qb" id="qbNew"   title="Создать (Ctrl+N)"><span class="qb-i">&#128196;</span>Создать</button>
+    <button class="qb" id="qbOpen"  title="Открыть (Ctrl+O)"><span class="qb-i">&#128194;</span>Открыть</button>
+    <button class="qb" id="qbSave"  title="Сохранить .mono (Ctrl+S)"><span class="qb-i">&#128190;</span>Сохранить</button>
+    <button class="qb" id="qbPrint" title="Печать (Ctrl+P)"><span class="qb-i">&#128424;</span>Печать</button>
+    <span class="qb-sep"></span>
+    <button class="qb ico" id="qbUndo" title="Отменить (Ctrl+Z)">&#8630;</button>
+    <button class="qb ico" id="qbRedo" title="Повторить (Ctrl+Y)">&#8631;</button>
+    <span class="qb-sep"></span>
+    <button class="qb ico" id="qbFind" title="Найти (Ctrl+F)">&#128269;</button>
+    <span class="qbar-zoom">масштаб <b id="rbZoom">100</b>%</span>
+  </div>
+
+  <!-- ================= вкладки ленты ================= -->
+  <nav class="rtabs">
+    <button class="rtab" data-tab="file">Файл</button>
+    <button class="rtab on" data-tab="home">Главная</button>
+    <button class="rtab" data-tab="insert">Вставка</button>
+    <button class="rtab" data-tab="view">Вид</button>
+    <button class="rtab" data-tab="layout">Разметка</button>
+    <button class="rtab" data-tab="about">О программе</button>
+  </nav>
+
+  <!-- ================= лента ================= -->
+
+  <div class="ribbon" id="ribbon">
+
+    <!-- ФАЙЛ -->
+    <div class="rpane" data-pane="file">
+      <div class="rgroup">
+        <div class="rg-title">Файл</div>
+        <div class="rg-body">
+          <div class="rg-col">
+            <button class="rbtn wide accent" id="btnNew">&#128196; Создать</button>
+            <button class="rbtn wide" id="qbOpen2">&#128194; Открыть</button>
+            <button class="rbtn wide" id="btnSaveMono">&#128190; Сохранить .mono</button>
+            <button class="rbtn wide" id="btnOpenMono">&#128193; Открыть .mono</button>
+          </div>
+          <div class="rg-col">
+            <button class="rbtn wide" id="btnSaveDocx">&#128196; Сохранить .docx</button>
+            <button class="rbtn wide" id="btnSaveHtm">&#128424; Сохранить .htm</button>
+            <button class="rbtn wide" id="btnSaveTxt">&#128221; Сохранить .txt</button>
+            <button class="rbtn wide" id="btnPrint">&#128424; Печать</button>
+          </div>
+          <div class="rg-col">
+            <button class="rbtn wide" id="btnTpl">&#128193; Пример (химия)</button>
+            <button class="rbtn wide" id="btnAuto">&#128266; Автосохранение: <span id="autoState">вкл</span></button>
+            <button class="rbtn wide warn" id="btnAll">&#128451; Очистить всё</button>
+            <button class="rbtn wide" id="btnSound">&#128266; Звук: <span id="sndState">вкл</span></button>
+            <label class="small chk"><input type="checkbox" id="sndOn" checked> пищать при клике</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ГЛАВНАЯ -->
+    <div class="rpane on" data-pane="home">
+      <div class="rgroup">
+        <div class="rg-title">Буфер обмена</div>
+        <div class="rg-body">
+          <button class="rbtn" id="btnPaste" title="Вставить">&#128203;<br>Вставить</button>
+          <div class="rg-col">
+            <button class="rbtn sm" id="btnCut" title="Вырезать">&#9986; Вырезать</button>
+            <button class="rbtn sm" id="btnCopy" title="Копировать">&#128203; Копировать</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="rgroup">
+        <div class="rg-title">Шрифт</div>
+        <div class="rg-body">
+          <div class="rg-row">
+            <select id="fFont" class="in98 w-font">
+              <option value="tah">Tahoma (программная)</option>
+              <option value="times">Times New Roman (умный)</option>
+              <option value="comic">Comic Sans MS (красивый)</option>
+              <option value="arial">Arial (скучный)</option>
+              <option value="impact">Impact (громкий)</option>
+              <option value="courier">Courier New (как в DOS)</option>
+            </select>
+            <select id="fSize" class="in98 w-size">
+              <option>8</option><option>9</option><option>10</option><option>11</option>
+              <option selected>12</option><option>14</option><option>16</option>
+              <option>18</option><option>20</option><option>24</option><option>28</option><option>36</option>
+            </select>
+            <span class="runit">pt</span>
+            <span class="rg-vsep"></span>
+            <input type="color" id="fColor" value="#000000" title="цвет текста" class="in98 w-color">
+            <button class="rbtn ico on" id="bBold" title="Ж (Ctrl+B)"><b>Ж</b></button>
+            <button class="rbtn ico" id="bIt" title="К (Ctrl+I)"><i>К</i></button>
+            <button class="rbtn ico" id="bUn" title="Ч (Ctrl+U)"><u>Ч</u></button>
+            <button class="rbtn ico" id="btnSup" title="Надстрочный (x²)">x&#178;</button>
+            <button class="rbtn ico" id="btnSub" title="Подстрочный (x₂)">x&#8322;</button>
+            <button class="rbtn ico" id="btnStrike" title="Зачёркнутый"><s>S</s></button>
+            <button class="rbtn ico" id="btnMark" title="Выделение цветом">&#9998;</button>
+            <button class="rbtn ico" id="bNone" title="Убрать начертание и выделение">&#9096;</button>
+          </div>
+          <div class="rg-row small muted">
+            выделен абзац <span id="curInfo2">—</span>
+            <!-- выравнивание переключается кнопками ленты, но модели нужен селект -->
+            <select id="fAl" class="vh">
+              <option value="left">по левому краю</option>
+              <option value="center">по центру</option>
+              <option value="right">по правому краю</option>
+              <option value="just">по ширине</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="rgroup">
+        <div class="rg-title">Абзац</div>
+        <div class="rg-body">
+          <div class="rg-row">
+            <button class="rbtn ico" id="btnList" title="Маркированный список">&#8226;&#8801;</button>
+            <button class="rbtn ico" id="btnNum" title="Нумерованный список">1.&#8801;</button>
+            <span class="rg-vsep"></span>
+            <button class="rbtn ico" id="btnAlLeft"  title="По левому краю">&#8676;</button>
+            <button class="rbtn ico" id="btnAlCenter" title="По центру">&#8596;</button>
+            <button class="rbtn ico" id="btnAlRight" title="По правому краю">&#8677;</button>
+            <button class="rbtn ico" id="btnAlJust"  title="По ширине">&#8597;</button>
+            <span class="rg-vsep"></span>
+            <button class="rbtn ico" id="btnIndUp"   title="Уменьшить отступ">&#8676;</button>
+            <button class="rbtn ico" id="btnIndDown" title="Увеличить отступ">&#8677;</button>
+            <button class="rbtn ico" id="btnSpace"   title="Интервал перед абзацем">&#8593;</button>
+            <span class="rg-vsep"></span>
+            <span class="runit">отступ</span>
+            <input type="range" id="fInd" min="0" max="60" value="0" class="w-ind">
+            <b id="indOut">0</b>
+            <span class="rg-vsep"></span>
+            <span class="runit">интервал</span>
+            <select id="fLh" class="in98 w-lh" title="межстрочный интервал">
+              <option value="0">обычный</option>
+              <option value="100">1,0</option>
+              <option value="150">1,5</option>
+              <option value="200">2,0</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="rgroup">
+        <div class="rg-title">Стили</div>
+        <div class="rg-body">
+          <div class="rg-row">
+            <select id="fStyle" class="in98 w-style">
+              <option value="p">обычный текст</option>
+              <option value="h1">заголовок 1</option>
+              <option value="h2">заголовок 2</option>
+              <option value="h3">заголовок 3</option>
+              <option value="li">список (точками)</option>
+              <option value="ol">список (номерами)</option>
+              <option value="quote">цитата</option>
+              <option value="pre">моноширинный</option>
+            </select>
+            <span class="runit" id="styleOut">обычный текст</span>
+          </div>
+          <div class="rg-row style-gal">
+            <button class="sg sg-p" data-s="p" title="обычный текст">Aa</button>
+            <button class="sg sg-h1" data-s="h1" title="заголовок 1">Заголовок</button>
+            <button class="sg sg-h2" data-s="h2" title="заголовок 2">Подзаголовок</button>
+            <button class="sg sg-h3" data-s="h3" title="заголовок 3">Подзаголовок 2</button>
+            <button class="sg sg-quote" data-s="quote" title="цитата">Цитата</button>
+            <button class="sg sg-li" data-s="li" title="список">&#8226; список</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ВСТАВКА -->
+    <div class="rpane" data-pane="insert">
+      <div class="rgroup">
+        <div class="rg-title">Абзац</div>
+        <div class="rg-body">
+          <button class="rbtn" id="btnAddAfter">+&#8627;<br>Абзац после</button>
+          <button class="rbtn" id="btnHr" title="Горизонтальная линия">&#9583;<br>Линия</button>
+          <button class="rbtn" id="btnImg" title="Вставить картинку (ещё можно перетащить файл на страницу)">&#128247;<br>Картинка</button>
+          <button class="rbtn" id="btnLink" title="Ссылка (Ctrl+K)">&#128279;<br>Ссылка</button>
+          <input type="file" id="fileImg" accept="image/*" class="vh">
+        </div>
+      </div>
+      <div class="rgroup">
+        <div class="rg-title">Абзацы</div>
+        <div class="rg-body">
+          <button class="rbtn" id="btnDup">&#128203;<br>Копия</button>
+          <button class="rbtn" id="btnUp">&#9650;<br>Выше</button>
+          <button class="rbtn" id="btnDown">&#9660;<br>Ниже</button>
+          <button class="rbtn warn2" id="btnDel">&#10006;<br>Удалить</button>
+        </div>
+      </div>
+      <div class="rgroup">
+        <div class="rg-title">Импорт</div>
+        <div class="rg-body">
+          <button class="rbtn wide" id="btnImportWord">&#128196; Импорт из Word (.docx)</button>
+          <button class="rbtn wide" id="btnImportAny">&#128193; Открыть .txt / .htm / .mono</button>
+          <div class="rg-row small muted">документ прямо в страницу. картинки вставляем, колонтитулы — нет.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ВИД -->
+    <div class="rpane" data-pane="view">
+      <div class="rgroup">
+        <div class="rg-title">Масштаб</div>
+        <div class="rg-body">
+          <button class="rbtn" id="zOut">&#8722;<br>Уменьшить</button>
+          <button class="rbtn" id="z100">100%<br>Сброс</button>
+          <button class="rbtn" id="zIn">+<br>Увеличить</button>
+          <button class="rbtn" id="zPage">&#128206;<br>Вписать</button>
+        </div>
+      </div>
+      <div class="rgroup">
+        <div class="rg-title">Области</div>
+        <div class="rg-body">
+          <label class="rchk"><input type="checkbox" id="ckRuler" checked> Линейка</label>
+          <label class="rchk"><input type="checkbox" id="ckGrid"> Сетка</label>
+          <label class="rchk"><input type="checkbox" id="ckMarks" checked> Знаки абзацев</label>
+        </div>
+      </div>
+      <div class="rgroup">
+        <div class="rg-title">Найти</div>
+        <div class="rg-body">
+          <div class="rg-row">
+            <input type="text" id="fFind" class="in98 w-find" placeholder="что ищем" spellcheck="false">
+            <button class="rbtn sm" id="btnFind">&#128269; Найти</button>
+            <button class="rbtn sm" id="btnFindNext">&#9654; Далее</button>
+            <button class="rbtn sm" id="btnRepl">&#8644; Заменить</button>
+            <span class="small" id="findNote">&nbsp;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- РАЗМЕТКА -->
+    <div class="rpane" data-pane="layout">
+      <div class="rgroup">
+        <div class="rg-title">Страница</div>
+        <div class="rg-body">
+          <button class="rbtn" data-pm="port">&#128196;<br>Книжная</button>
+          <button class="rbtn" data-pm="land">&#128424;<br>Альбомная</button>
+        </div>
+      </div>
+      <div class="rgroup">
+        <div class="rg-title">Поля</div>
+        <div class="rg-body">
+          <button class="rbtn" data-pm="narrow">&#9636;<br>Узкие</button>
+          <button class="rbtn" data-pm="wide">&#9635;<br>Широкие</button>
+          <button class="rbtn" data-pm="port">&#9634;<br>Обычные</button>
+        </div>
+      </div>
+      <div class="rgroup">
+        <div class="rg-title">Абзац</div>
+        <div class="rg-body">
+          <button class="rbtn" id="btnRevert">&#8634;<br>Сбросить оформление</button>
+          <button class="rbtn" id="btnApply">&#10004;<br>Применить</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- О ПРОГРАММЕ -->
+    <div class="rpane" data-pane="about">
+      <div class="rgroup wide">
+        <div class="rg-title">о программе.txt</div>
+        <div class="rg-body about" id="about">
+          <h3>ДОКУМЕНТЫ МОНОЛИТ 2000 (beta 0.4)</h3>
+          <p>Часть <b>Офиса Монолит</b>. Тот же редактор, что и в настоящем Word, только легче и честнее.</p>
+          <table class="spec">
+            <tr><td>Вкладок в ленте:</td><td>6</td></tr>
+            <tr><td>Стилей абзаца:</td><td>8</td></tr>
+            <tr><td>Шрифтов:</td><td>6</td></tr>
+            <tr><td>Формат родной:</td><td>.mono (JSON)</td></tr>
+            <tr><td>Открывает:</td><td>.mono, .docx, .txt, .htm</td></tr>
+            <tr><td>Сохраняет:</td><td>.mono, .docx, .htm, .txt</td></tr>
+            <tr><td>Отмена Ctrl+Z:</td><td>есть, 40 шагов</td></tr>
+            <tr><td>Разработчик проекта:</td><td>корпорация Монолит</td></tr>
+          </table>
+          <div class="cr-note">
+            <b>Проект создан корпорацией Монолит.</b> Документы Монолит 2000 — собственная
+            разработка корпорации Монолит. Настоящий Word мы не покупали и не используем.
+            <br>© Корпорация Монолит. Все права защищены.
+          </div>
+          <h4>КАК ПЕЧАТАТЬ</h4>
+          <ol>
+            <li>Жми на страницу и печатай — это живой документ, не поле для текста.</li>
+            <li>Enter — новый абзац, Shift+Enter — перенос строки, Tab — табуляция.</li>
+            <li>Лента сверху меняет оформление на ходу: шрифт, начертание, списки, отступы.</li>
+            <li>Ctrl+S — сохранить .mono, Ctrl+P — печать.</li>
+          </ol>
+          <h4>ЧТО СЛЕТАЕТ ПРИ ОТКРЫТИИ WORD</h4>
+          <ul>
+            <li><b>шрифты</b> — заменяются на наши шесть.</li>
+            <li><b>картинки, фото, рисунки</b> — не переносятся.</li>
+            <li><b>таблицы</b> — становятся строчками текста.</li>
+            <li><b>колонтитулы и нумерация страниц</b> — выбрасываются.</li>
+          </ul>
+          <div class="warnbox">Если после импорта стало уродливо — это <b>не баг</b>. Настоящий Word мы не покупали.</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /ribbon -->
+
+  <!-- ================= рабочая область ================= -->
+  <div class="workspace">
+
+    <div class="canvas" id="canvas">
+      <div class="ruler" id="rulerRow">
+        <div class="ruler-inner">
+          <span class="r-tick">0</span><span class="r-tick">5</span><span class="r-tick">10</span>
+          <span class="r-tick">15</span><span class="r-tick">20</span><span class="r-tick">25</span>
+          <span class="r-tick">30</span>
+        </div>
+      </div>
+      <div class="paperWrap">
+        <div id="paperScale">
+          <div id="paper" class="paper">
+            <div id="page" class="page" contenteditable="true" spellcheck="false"></div>
+          </div>
+        </div>
+      </div>
+      <div class="canvas-foot small">
+        живая страница. жми на абзац и печатай прямо в ней.
+        <span id="zoomOut" class="muted"></span>
+      </div>
+    </div>
+
+  </div><!-- /workspace -->
+
+  <div class="crbar">
+    Документы Монолит 2000 — проект <b>корпорации Монолит</b> · © Корпорация Монолит, все права защищены
+  </div>
+</div><!-- /app -->
+
+<!-- панель импорта -->
+<div class="drawer" id="importPanel">
+  <div class="dr-head">
+    <span>МАСТЕР ИМПОРТА WORD — работает как умеет</span>
+    <button class="dr-x" id="impClose" title="Закрыть">&#10006;</button>
+  </div>
+  <div class="dr-body">
+    <div class="warnbox">
+      <b>ВНИМАНИЕ!</b> Полный функционал Word сюда не вставляли: он большой и дорогой.
+      При импорте <b>красота слетает</b>: шрифты заменяются на наши (6 штук), картинки и таблицы
+      не переносятся, колонтитулы выбрасываются, интервалы становятся нашими.
+      <b>Текст уцелеет. Остальное — как повезёт.</b>
+    </div>
+    <div id="drop" class="drop">
+      <div class="drop-big">&#128196; КИДАЙ СЮДА .docx &#128196;</div>
+      <div class="small">или кнопкой ниже. можно и в любое другое место окна кинуть — мы поймём</div>
+      <input type="file" id="fileDoc" accept=".docx,.docm,.dotx,.xml,.txt,.mono,.json,.htm,.html" class="file98">
+    </div>
+    <label class="small chk"><input type="checkbox" id="dryRun"> жалкий режим: только отчёт, ничего не менять</label>
+    <fieldset class="fs"><legend>ОТЧЁТ О КОНВЕРТАЦИИ</legend>
+      <pre id="report">отчёт появится тут.
+пока пусто — файл не выбран.</pre>
+    </fieldset>
+  </div>
+</div>
+
+<!-- печать: только лист -->
+<div class="tabpane" id="tab-print">
+  <div class="paperWrap">
+    <div id="paperScale2">
+      <div class="paper"><div class="page" id="printPage"></div></div>
+    </div>
+  </div>
+</div>
+
+<input type="file" id="fileMono" accept=".mono,.json,.htm,.html,.txt,.docx" class="file98 hidden">
+
+<div class="marq"><marquee scrollamount="5">&nbsp;*~*&nbsp;ДОКУМЕНТЫ МОНОЛИТ: ТЕПЕРЬ КАК В ВОРДЕ&nbsp;*~-&nbsp;лента сверху, живая страница, кнопка «Монолит Офис» справа&nbsp;*~-&nbsp;Ctrl+Z работает, не бойся&nbsp;*~-&nbsp;проект корпорации Монолит&nbsp;*~-&nbsp;</marquee></div>
+
+<div id="dropOv" class="dropov"><div>ОТПУСТИ ФАЙЛ — ЧИТАЕМ</div></div>
+
+<script src="js/i18n.js"></script>
+<script src="js/office.js"></script>
+<script src="js/main.js"></script>
+<script src="js/ribbon.js"></script>
+</body>
+</html>
